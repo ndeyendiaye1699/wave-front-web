@@ -1,0 +1,148 @@
+/* modal-styles.css */
+
+.fixed {
+    position: fixed;
+}
+
+.inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.bg-gray-600 {
+    background-color: rgba(0, 0, 0, 0.8); /* Fond plus sombre */
+}
+
+.bg-white {
+    background-color: #f9f9f9; /* Fond modal plus clair */
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+.rounded-xl {
+    border-radius: 12px; /* Coins plus arrondis */
+}
+
+.p-5 {
+    padding: 2rem; /* Espacement interne plus grand */
+}
+
+.text-lg {
+    font-size: 1.5rem; /* Titre plus grand */
+}
+
+.text-gray-900 {
+    color: #333; /* Couleur de texte plus foncée */
+}
+
+.text-gray-700 {
+    color: #555; /* Couleur de texte pour les étiquettes */
+}
+
+.text-gray-500 {
+    color: #777; /* Couleur de texte pour les descriptions */
+}
+
+.border {
+    border-width: 1px; /* Bordures fines */
+}
+
+.border-gray-300 {
+    border-color: #d1d5db; /* Bordure gris clair */
+}
+
+.bg-gray-100 {
+    background-color: #f3f4f6; /* Fond bouton plus clair */
+}
+
+.bg-blue-600 {
+    background-color: #007bff; /* Couleur bleu pour les boutons */
+}
+
+.bg-blue-700 {
+    background-color: #0056b3; /* Couleur bleu plus foncé pour les hover */
+}
+
+.hover\:bg-gray-200:hover {
+    background-color: #e5e7eb; /* Effet hover pour boutons */
+}
+
+.hover\:bg-blue-700:hover {
+    background-color: #0056b3; /* Effet hover pour le bouton de confirmation */
+}
+
+.flex {
+    display: flex; /* Utilisation de Flexbox */
+}
+
+.items-center {
+    align-items: center; /* Alignement des éléments au centre */
+}
+
+.justify-between {
+    justify-content: space-between; /* Espacement entre les éléments */
+}
+
+.mb-4 {
+    margin-bottom: 1rem; /* Espacement inférieur */
+}
+
+.max-w-md {
+    max-width: 600px; /* Largeur maximale pour le modal */
+}
+
+.p-4 {
+    padding: 1rem; /* Espacement interne pour les sections */
+}
+
+.transition-colors {
+    transition: background-color 0.3s; /* Transition pour les couleurs */
+}
+
+/* Styles pour les étapes */
+.w-8 {
+    width: 32px; /* Largeur des étapes */
+}
+
+.h-8 {
+    height: 32px; /* Hauteur des étapes */
+}
+
+.bg-gray-200 {
+    background-color: #e5e7eb; /* Couleur des étapes non actives */
+}
+
+.bg-blue-500 {
+    background-color: #007bff; /* Couleur des étapes actives */
+}
+
+.text-white {
+    color: #fff; /* Couleur du texte en blanc */
+}
+
+/* Autres styles */
+.rounded-full {
+    border-radius: 50%; /* Coins arrondis pour les éléments circulaires */
+}
+
+.cursor-pointer {
+    cursor: pointer; /* Curseur pointeur pour les éléments cliquables */
+}
+
+/* Styles pour les boutons de bas de modal */
+.flex-1 {
+    flex: 1; /* Permet aux boutons de prendre un espace égal */
+}
+
+.disabled\:bg-gray-300:disabled {
+    background-color: #d1d5db; /* Couleur pour les boutons désactivés */
+    cursor: not-allowed; /* Curseur non autorisé pour les boutons désactivés */
+}
+
+.hover\:bg-blue-600:hover {
+    background-color: #0056b3; /* Effet hover pour les boutons */
+}

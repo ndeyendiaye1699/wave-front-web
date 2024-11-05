@@ -1,0 +1,37 @@
+<div class="space-y-6">
+    <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm">
+      <div class="flex justify-between items-start">
+        <div>
+          <p class="text-gray-500">VOLUME TOTAL</p>
+          <p class="text-lg sm:text-xl font-semibold mt-1">{{ totalVolume | number:'1.2-2' }} FCFA</p>
+        </div>
+        <div class="w-8 h-8 bg-pink-50 rounded-lg flex items-center justify-center">
+          <i class="fas fa-chart-line text-pink-500"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm">
+      <div class="flex justify-between items-start">
+        <div>
+          <p class="text-gray-500">TRANSACTIONS</p>
+          <p class="text-lg sm:text-xl font-semibold mt-1">{{ totalTransactions }}</p>
+        </div>
+        <div class="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center">
+          <i class="fas fa-exchange-alt text-blue-500"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm">
+      <div class="flex justify-between items-start">
+        <div>
+          <p class="text-gray-500">MOYENNE/TRANSACTION</p>
+          <p class="text-lg sm:text-xl font-semibold mt-1">{{ averageTransaction | number:'1.2-2' }} FCFA</p>
+        </div>
+        <div class="w-8 h-8 bg-purple-50 rounded-lg flex items-center justify-center">
+          <i class="fas fa-calculator text-purple-500"></i>
+        </div>
+      </div>
+    </div>
+  </div>

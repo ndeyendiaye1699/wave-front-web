@@ -1,0 +1,446 @@
+<style>
+  .Container{
+    background-color: #77A0BF;
+  }
+    /* Custom Styles for Transaction Section */
+  .transition-shadow {
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 640px) {
+    .max-w-lg {
+      max-width: 100%;
+    }
+  }
+  /* Container Styles */
+.max-w-7xl {
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+}
+
+/* Balance Card */
+.bg-white {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.text-lg {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.text-green-500 {
+    color: #10b981;
+}
+
+/* Button Styles */
+button {
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bg-blue-50 {
+    background-color: #eff6ff;
+    color: #3b82f6;
+}
+
+.bg-green-50 {
+    background-color: #ecfdf5;
+    color: #10b981;
+}
+
+.bg-orange-50 {
+    background-color: #fff7ed;
+    color: #fb923c;
+}
+
+.text-gray-500:hover {
+    color: #1f2937;
+}
+
+.text-gray-700 {
+    color: #374151;
+}
+
+/* Icon Styles */
+i {
+    margin-right: 0.5rem;
+}
+
+i:hover {
+    color: inherit;
+}
+
+/* Modal Styles */
+app-transaction-modal {
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.app-transaction-modal[isOpen="false"] {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+
+/* Barre de navigation */
+nav {
+  background-color: #ffffff;
+  border-bottom: 1px solid #E5E7EB; /* Légère séparation */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Boutons et icônes */
+button {
+  color: #64748b; /* Couleur principale du texte */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: #E27A36; /* Couleur d'accentuation au survol */
+  color: #ffffff;
+}
+
+/* Champ de recherche */
+input[type="text"] {
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding-left: 2.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #E27A36;
+  box-shadow: 0 0 0 2px rgba(226, 122, 54, 0.2);
+}
+
+/* Notification */
+.relative .fas.fa-bell {
+  color: #64748b;
+}
+
+.relative .absolute {
+  background-color: #E27A36; /* Couleur de notification */
+  color: white;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 0.75rem;
+  padding: 0.1rem 0.5rem;
+}
+
+/* Menu de profil */
+.relative .absolute.right-0.mt-2 {
+  background-color: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.relative .absolute.right-0.mt-2 a:hover {
+  background-color: #f3f4f6;
+  color: #E27A36;
+}
+
+.relative .absolute.right-0.mt-2 a.text-red-600 {
+  color: #E27A36;
+}
+
+/* Image de profil */
+.relative .w-8.h-8,
+.relative .sm\:w-10.sm\:h-10 {
+  border: 2px solid #64748b;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.relative .w-8.h-8:hover,
+.relative .sm\:w-10.sm\:h-10:hover {
+  border-color: #E27A36;
+  transform: scale(1.05);
+}
+
+/* Texte Zigfreak Money */
+.text-blue-600 {
+  color: #E27A36;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Ajouts divers pour un look professionnel */
+.min-h-screen {
+  background-color: #F9FAFB;
+}
+
+.bg-gray-50 {
+  background-color: #F9FAFB;
+}
+
+.text-gray-500 {
+  color: #64748b;
+}
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .transition-transform {
+    transition: transform 0.2s;
+  }
+
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+</style>
+<div class="min-h-screen bg-gray-50">
+  <!-- Top Navigation -->
+ <!-- Top Navigation -->
+ <nav class="bg-white border-b px-4 sm:px-6 py-4 flex items-center justify-between">
+  
+<div class="flex items-center space-x-4">
+<button class="text-gray-500 md:hidden">
+  <i class="fas fa-bars"></i>
+</button>
+<div class="w-11 h-11">
+  <img src="data:image/jpeg;base64,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" alt="">
+  <span class="logo-text">Wave</span>
+</div>
+<span class="text-sm font-semibold text-blue-600 hidden md:block">
+</span>
+</div>
+
+<!-- Right side navigation with profile dropdown -->
+<div class="flex items-center space-x-4 sm:space-x-6">
+
+<div class="relative">
+  <i class="fas fa-bell text-red-800 text-xl"></i>
+  <span class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">12</span>
+</div>
+
+<!-- Profile dropdown -->
+<div class="relative">
+  <button (click)="toggleProfileMenu()" class="flex items-center focus:outline-none">
+    <img [src]="userPhoto" alt="profile" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover">
+  </button>
+  
+  <!-- Dropdown menu -->
+  <div *ngIf="showProfileMenu"
+       class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+    <a href="javascript:void(0)" (click)="logout()" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+      <i class="fas fa-sign-out-alt mr-2"></i>Déconnexion
+    </a>
+  </div>
+</div>
+</div>
+</nav>
+
+
+  <!-- Main Content Container -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 Container">
+    <!-- Balance Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+      <!-- Main Balance Card -->
+      <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm">
+        <div class="flex justify-between items-start mb-6">
+          <div>
+            <h2 class="text-lg font-semibold">Solde Compte</h2>
+            <div class="flex items-center mt-2">
+              <div class="flex items-center mt-2">
+                <h3 
+                  class="text-xl sm:text-2xl font-bold transition-all duration-300" 
+                  [class.blur-sm]="hideBalance"
+                >
+                  {{ compte?.solde | number:'1.2-2' }} FCFA
+                </h3>
+                <button 
+                  class="ml-2 text-gray-500 hover:text-gray-700 transition-colors"
+                  (click)="toggleBalance()"
+                  [title]="hideBalance ? 'Afficher le solde' : 'Masquer le solde'"
+                >
+                  <i class="fas" [class.fa-eye]="hideBalance" [class.fa-eye-slash]="!hideBalance"></i>
+                </button>
+              </div>
+            </div>
+            <p class="text-green-500 text-sm mt-2">
+              
+            </p>
+            
+          </div>
+          
+        </div>
+             <!-- QR Code Card -->
+<div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105">
+  <div class="flex justify-between items-center mb-4">
+  </div>
+  <div class="flex flex-col items-center justify-center space-y-4 p-6">
+    <!-- <img src="data:image/png;base64,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" alt="QR Code" class="w-40 h-40 rounded-md shadow-md">
+    <p></p>
+    <P></P> -->
+    <!-- wave-compte-component.html -->
+    <app-qr-code></app-qr-code>
+  </div>
+
+        <div class="ml-2flex space-x-1 mb-6 ">
+          <ng-container *ngIf="isAgentOrAdmin">
+            <button (click)="openTransactionModal('deposit')" class="flex-1 px-4 py-2 bg-blue-50 text-blue-600 rounded-lg text-sm sm:text-base">
+              <i class="fas fa-paper-plane mr-2"></i>Dépot
+            </button>
+            <button (click)="openTransactionModal('withdrawal')" class="flex-1 px-4 py-2 bg-green-50 text-green-600 rounded-lg text-sm sm:text-base">
+              <i class="fas fa-download mr-2"></i>Retrait
+            </button>
+          </ng-container>
+          <button (click)="openTransactionModal('transfer')" class="flex-1 px-4 py-2 bg-green-50 text-green-600 rounded-lg text-sm sm:text-base">
+            <i class="fas fa-download mr-2"></i>Transfert
+          </button>
+          <button (click)="openTransactionModal('payement')" class="flex-1 px-4 py-2 bg-orange-50 text-orange-600 rounded-lg text-sm sm:text-base mt-6">
+            <i class="fas fa-shopping-cart mr-2"></i>Paiement
+          </button>
+        </div>
+        <!-- Ajoutez le composant modal à la fin de votre template -->
+        <app-transaction-modal
+          [isOpen]="transactionModalOpen"
+          [type]="transactionType"
+          (closeModal)="transactionModalOpen = false"
+          (confirmTransaction)="handleTransactionConfirm($event)"
+        ></app-transaction-modal>
+
+        <div class="grid grid-cols-3 gap-2 sm:gap-4 text-sm">
+         
+         
+         
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+
+ 
+
+      <button 
+      *ngIf="userConnected?.role === 'ADMIN'"
+      (click)="openDemandeModal()" 
+      class="px-4 py-2 bg-blue-50 text-blue-600 rounded-lg"
+    >
+      <i class="fas fa-file-alt mr-2"></i>Mes Demandes
+    </button>
+<!-- Modal de demandes -->
+<app-demande-request 
+  *ngIf="demandeModalOpen && userConnected?.role === 'ADMIN'"
+  (modalClose)="closeDemandeModal()"
+>
+</app-demande-request>
+    </div>
+
+<!-- Transactions Section -->
+<div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 max-w-lg mx-auto">
+  
+  <div class="flex justify-between items-center mb-6">
+    <h3 class="text-xl font-bold text-gray-800">Historique des Transactions</h3>
+
+    <!-- Month Filter Dropdown -->
+    <div class="relative">
+      <!-- Dropdown content can go here -->
+    </div>
+  </div>
+
+  <!-- Notifications List -->
+  <div class="space-y-4">
+    <div *ngFor="let notification of notifications" 
+         class="bg-gray-50 p-4 rounded-xl hover:shadow-lg transition-shadow duration-300 ease-in-out w-full border-l-4 border-[#EE7D1F]">
+      <div class="flex items-start justify-between mb-3">
+        <div class="text-xs sm:text-sm text-gray-600">
+          <p class="font-medium">{{ notification.message }}</p>
+          <small class="text-gray-500">Type: {{ notification.type }} - Date: {{ notification.date | date: 'short' }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- Pagination -->
+   <div class="flex items-center justify-between mt-6 px-4">
+    <div class="flex items-center space-x-2">
+      <button 
+        (click)="changePage(currentPage - 1)"
+        [disabled]="currentPage === 1"
+        class="p-2 rounded-lg border text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      
+      <div class="flex items-center space-x-1">
+        <ng-container *ngFor="let page of getPageNumbers()">
+          <button 
+            *ngIf="page !== '...'"
+            (click)="changePage(+page)"
+            [class.bg-blue-50]="currentPage === +page"
+            [class.text-blue-600]="currentPage === +page"
+            class="w-8 h-8 rounded-lg border flex items-center justify-center text-sm  hover:bg-gray-50"
+          >
+            {{ page }}
+          </button>
+          <span *ngIf="page === '...'" class="px-1">...</span>
+        </ng-container>
+      </div>
+
+      <button 
+        (click)="changePage(currentPage + 1)"
+        [disabled]="currentPage === totalPages"
+        class="p-2 rounded-lg border text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+   
+  </div>
+</div>
+<div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm">
+  <div class="space-y-6 text-center">
+    <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm text-center">
+      <div class="flex justify-between items-start">
+        <div>
+          <p class="text-gray-500">Solde disponible Max:</p>
+          <p class="text-lg sm:text-xl font-semibold mt-1">{{ compte?.soldeMaximum | number:'1.2-2' }} FCFA</p> 
+          
+          <button (click)="openDeplafonnementModal()" class="px-4 py-2 bg-blue-50 text-blue-600 rounded-lg w-full text-sm sm:text-base">
+            <i class="fas fa-download mr-2"></i>Déplafonner
+          </button>
+          <app-deplafonnement-modal
+[isOpen]="deplafonnementModalOpen"
+(closeModalEvent)="deplafonnementModalOpen = false"
+(submitRequest)="handleDeplafonnementSubmit($event)"
+
+></app-deplafonnement-modal>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
+     
+    </div>
+    
+</div>

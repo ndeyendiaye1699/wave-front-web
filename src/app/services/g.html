@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wave Desktop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body class="bg-gray-100 flex flex-col items-center min-h-screen p-4 sm:p-6">
+
+  <!-- Top Navbar -->
+  <div class="flex flex-col items-center bg-blue-600 text-white w-full max-w-md p-6 rounded-lg shadow-md">
+    <h1 class="text-3xl font-semibold mb-2">Wave Desktop</h1>
+    <div class="text-center">
+      <p class="text-gray-200">Solde disponible</p>
+      <p class="text-4xl font-bold">150,000 XOF</p>
+    </div>
+    
+    <!-- QR Code -->
+    <img src="https://via.placeholder.com/150" alt="QR Code" class="w-32 h-32 mt-4">
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="flex justify-around w-full max-w-md mt-6 space-x-3">
+    <button class="flex-1 bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600">
+      <span class="mr-2">💰</span> Dépôt
+    </button>
+    <button class="flex-1 bg-green-500 text-white py-3 rounded-lg hover:bg-green-600">
+      <span class="mr-2">📤</span> Envoyer
+    </button>
+    <button class="flex-1 bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600">
+      <span class="mr-2">💳</span> Transfert
+    </button>
+  </div>
+
+  <!-- Transaction History -->
+  <div class="w-full max-w-md mt-8 space-y-4">
+    <h2 class="text-xl font-semibold mb-2">Historique de transactions</h2>
+    
+    <div class="bg-white p-4 rounded-lg shadow-md">
+      <div class="flex justify-between">
+        <div>
+          <p class="font-semibold">Mamadou S.</p>
+          <p class="text-sm text-gray-500">Envoi</p>
+        </div>
+        <p class="font-bold text-red-500">-25,000 XOF</p>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow-md">
+      <div class="flex justify-between">
+        <div>
+          <p class="font-semibold">Électricité</p>
+          <p class="text-sm text-gray-500">Facture</p>
+        </div>
+        <p class="font-bold text-red-500">-45,000 XOF</p>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow-md">
+      <div class="flex justify-between">
+        <div>
+          <p class="font-semibold">Orange</p>
+          <p class="text-sm text-gray-500">Recharge</p>
+        </div>
+        <p class="font-bold text-red-500">-5,000 XOF</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

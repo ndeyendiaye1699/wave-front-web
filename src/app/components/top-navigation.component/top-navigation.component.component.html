@@ -1,0 +1,43 @@
+<nav class="bg-white border-b px-4 sm:px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center space-x-4">
+      <button class="text-gray-500 md:hidden">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="relative hidden md:block">
+        <i class="fas fa-search text-gray-400 absolute left-3 top-3"></i>
+        <input type="text" 
+               placeholder="Search here..."
+               class="pl-10 pr-4 py-2 rounded-lg bg-gray-100 w-48 lg:w-64 focus:outline-none">
+      </div>
+      <span class="text-sm font-semibold text-blue-600 hidden md:block">
+    
+      </span>
+    </div>
+
+    <div class="flex items-center space-x-4 sm:space-x-6">
+      <img src="/api/placeholder/24/16" alt="flag" class="h-4 hidden sm:block">
+      <button class="text-gray-500 hidden sm:block">
+        <i class="fas fa-sun text-xl"></i>
+      </button>
+      <div class="relative">
+        <span class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">2</span>
+        <i class="fas fa-bell text-red-800 text-xl"></i>
+      </div>
+      
+      <div class="relative">
+        <button (click)="toggleProfileMenu.emit()" class="flex items-center focus:outline-none">
+          <img src="/api/placeholder/40/40" alt="profile" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full">
+        </button>
+        
+        <div *ngIf="showProfileMenu"
+             class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+            <i class="fas fa-cog mr-2"></i>Paramètres
+          </a>
+          <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+            <i class="fas fa-sign-out-alt mr-2"></i>Déconnexion
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>

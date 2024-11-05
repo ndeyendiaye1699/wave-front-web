@@ -1,0 +1,22 @@
+<div class="bg-white p-6 rounded-lg shadow-sm mt-4">
+    <h2 class="text-gray-600 mb-4">Historique des transactions</h2>
+    <div class="space-y-4">
+      @for(transaction of transactions; track transaction.date) {
+        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+          <div class="flex items-center">
+            <i [class]="transaction.icon + ' text-blue-600 mr-3'"></i>
+            <div>
+              <p class="font-medium">{{transaction.type}} {{transaction.amount}}</p>
+              @if(transaction.recipient) {
+                <p class="text-sm text-gray-500">vers {{transaction.recipient}}</p>
+              }
+            </div>
+          </div>
+          <span class="text-sm text-gray-500">{{transaction.date}}</span>
+        </div>
+      }
+    </div>
+    <button class="w-full mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg">
+      Voir plus
+    </button>
+  </div>

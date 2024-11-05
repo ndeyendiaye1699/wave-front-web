@@ -1,0 +1,422 @@
+<style>
+  /* Base page background with animated gradient */
+  .min-h-screen {
+    background: linear-gradient(-45deg, #EE7D1F, #77A0BF);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+  }
+
+
+
+  /* Main card container */
+  .max-w-md {
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+  }
+
+  .max-w-md:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Enhanced typography */
+  h2.text-3xl {
+    font-size: 2.5rem;
+    color: #EE7D1F; /* Vibrant orange for headings */
+    letter-spacing: -0.5px;
+  }
+
+  .text-gray-600 {
+    color: #64748b;
+    font-weight: 400;
+  }
+
+  /* Form group styling */
+  .space-y-4 > div {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Input fields with floating labels */
+  .relative {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  input:not([type="checkbox"]), select {
+    height: 3.5rem;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    color: #1e293b;
+  }
+
+  input:focus, select:focus {
+    background: white;
+    border-color: #EE7D1F; /* Vibrant orange on focus */
+    box-shadow: 0 0 0 4px rgba(238, 125, 31, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* Enhanced select styling */
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25em;
+    padding-right: 2.5rem;
+  }
+
+  /* Submit button with gradient and animation */
+  button[type="submit"] {
+    background: linear-gradient(45deg, #EE7D1F, #77A0BF); /* Gradient with specified colors */
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    color: white; /* Text color for button */
+  }
+
+  button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(238, 125, 31, 0.3);
+  }
+
+  button[type="submit"]::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(rgba(255,255,255,0.2), transparent);
+    transform: rotate(45deg);
+    animation: buttonShine 3s infinite;
+  }
+
+  @keyframes buttonShine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+  }
+
+  /* Checkbox styling */
+  .flex.items-center input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .flex.items-center input[type="checkbox"]:checked {
+    background-color: #EE7D1F; /* Change to vibrant orange when checked */
+    border-color: #EE7D1F;
+  }
+
+  /* File upload button */
+  button[type="button"] {
+    background: #f1f5f9;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  button[type="button"]:hover {
+    background: #e2e8f0;
+    transform: translateY(-1px);
+  }
+
+  /* Image preview enhancement */
+  .rounded-full {
+    border: 3px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .rounded-full:hover {
+    border-color: #EE7D1F; /* Border color change on hover */
+    transform: scale(1.05) rotate(5deg);
+  }
+
+  /* Error messages with fade-in */
+  .text-red-600 {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Links with animated underline */
+  a.text-blue-600 {
+    color: #2563eb;
+    font-weight: 500;
+    position: relative;
+    text-decoration: none;
+  }
+
+  a.text-blue-600::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(90deg, #2563eb, #77A0BF);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  a.text-blue-600:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .max-w-md {
+      width: 90%;
+      margin: 1rem;
+      padding: 1.5rem;
+    }
+    
+    h2.text-3xl {
+      font-size: 2rem;
+    }
+    
+    .grid.grid-cols-2 {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>
+<div class="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
+      <!-- Login Form -->
+      @if (!showRegister) {
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="space-y-6">
+          <div class="text-center">
+            <h2 class="text-3xl font-bold text-gray-900">Connexion</h2>
+          </div>
+  
+          <div class="space-y-4">
+            <div>
+              <div class="relative">
+                <input 
+                  type="tel" 
+                  formControlName="telephone"
+                  placeholder="Téléphone"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  [ngClass]="{'border-red-500': shouldShowError(loginForm, 'telephone', 'required')}"
+                >
+              </div>
+              @if (shouldShowError(loginForm, 'telephone', 'required')) {
+                <p class="mt-1 text-sm text-red-600">Le téléphone est requis</p>
+              }
+            </div>
+  
+            <div>
+              <div class="relative">
+                <input 
+                  [type]="showLoginPassword ? 'text' : 'password'"
+                  formControlName="password"
+                  placeholder="Mot de passe"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  [ngClass]="{'border-red-500': shouldShowError(loginForm, 'password', 'required')}"
+                >
+                <button 
+                  type="button"
+                  (click)="showLoginPassword = !showLoginPassword"
+                  class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                >
+                  <i class="fas" [ngClass]="showLoginPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                </button>
+              </div>
+              @if (shouldShowError(loginForm, 'password', 'required')) {
+                <p class="mt-1 text-sm text-red-600">Le mot de passe est requis</p>
+              }
+            </div>
+          </div>
+  
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <input type="checkbox" class="h-4 w-4 text-blue-600 rounded border-gray-300">
+              <label class="ml-2 text-sm text-gray-600">Se souvenir de moi</label>
+            </div>
+            <a href="#" class="text-sm text-blue-600 hover:text-blue-800">Mot de passe oublié ?</a>
+          </div>
+  
+          <button 
+            type="submit"
+            class="w-full flex justify-center py-3 px-4 rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Se connecter
+          </button>
+  
+          <p class="text-center text-sm text-gray-600">
+            <a href="#" (click)="toggleForm($event)" class="text-blue-600 hover:text-blue-800">Créer un compte</a>
+          </p>
+        </form>
+      }
+  
+      <!-- Register Form -->
+      @if (showRegister) {
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="space-y-6">
+          <div class="text-center">
+            <h2 class="text-3xl font-bold text-gray-900">Inscription</h2>
+          </div>
+  
+          <div class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <input 
+                  type="text" 
+                  formControlName="nom"
+                  placeholder="Nom"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  [ngClass]="{'border-red-500': shouldShowError(registerForm, 'nom', 'required')}"
+                >
+                @if (shouldShowError(registerForm, 'nom', 'required')) {
+                  <p class="mt-1 text-sm text-red-600">Le nom est requis</p>
+                }
+              </div>
+  
+              <div>
+                <input 
+                  type="text" 
+                  formControlName="prenom"
+                  placeholder="Prénom"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  [ngClass]="{'border-red-500': shouldShowError(registerForm, 'prenom', 'required')}"
+                >
+                @if (shouldShowError(registerForm, 'prenom', 'required')) {
+                  <p class="mt-1 text-sm text-red-600">Le prénom est requis</p>
+                }
+              </div>
+            </div>
+  
+            <div>
+              <input 
+                type="tel" 
+                formControlName="telephone"
+                placeholder="Téléphone"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                [ngClass]="{'border-red-500': shouldShowError(registerForm, 'telephone', 'required')}"
+              >
+              @if (shouldShowError(registerForm, 'telephone', 'required')) {
+                <p class="mt-1 text-sm text-red-600">Le téléphone est requis</p>
+              }
+            </div>
+  
+            <div>
+              <div class="relative">
+                <input 
+                  [type]="showRegisterPassword ? 'text' : 'password'"
+                  formControlName="password"
+                  placeholder="Mot de passe"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  [ngClass]="{'border-red-500': shouldShowError(registerForm, 'password', 'required')}"
+                >
+                <button 
+                  type="button"
+                  (click)="showRegisterPassword = !showRegisterPassword"
+                  class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                >
+                  <i class="fas" [ngClass]="showRegisterPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                </button>
+              </div>
+              @if (shouldShowError(registerForm, 'password', 'required')) {
+                <p class="mt-1 text-sm text-red-600">Le mot de passe est requis</p>
+              }
+            </div>
+  
+            <div>
+              <input 
+                [type]="showRegisterPassword ? 'text' : 'password'"
+                formControlName="confirmPassword"
+                placeholder="Confirmer le mot de passe"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                [ngClass]="{'border-red-500': shouldShowError(registerForm, 'confirmPassword', 'required')}"
+              >
+              @if (shouldShowError(registerForm, 'confirmPassword', 'required')) {
+                <p class="mt-1 text-sm text-red-600">La confirmation du mot de passe est requise</p>
+              }
+              @if (registerForm.errors?.['passwordMismatch'] && formSubmitted) {
+                <p class="mt-1 text-sm text-red-600">Les mots de passe ne correspondent pas</p>
+              }
+            </div>
+  
+            <div>
+              <select formControlName="role">
+                <option value="">Sélectionner un rôle</option>
+                <option value="ADMIN">Administrateur</option>
+                <option value="MARCHAND">Marchand</option>
+                <option value="AGENT">Agent</option>
+                <option value="CLIENT">Client</option>
+              </select>
+              @if (shouldShowError(registerForm, 'role', 'required')) {
+                <p class="mt-1 text-sm text-red-600">Le rôle est requis</p>
+              }
+            </div>
+  
+            <div class="flex items-center space-x-4">
+              <input 
+                type="file"
+                (change)="onFileSelected($event)"
+                accept="image/*"
+                class="hidden"
+                #fileInput
+              >
+              <button 
+                type="button"
+                (click)="fileInput.click()"
+                class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
+              >
+                Choisir une photo
+              </button>
+              @if (imagePreview) {
+                <div class="relative w-16 h-16 rounded-full overflow-hidden">
+                  <img 
+                    [src]="imagePreview"
+                    class="w-full h-full object-cover"
+                    alt="Preview"
+                  >
+                </div>
+              }
+            </div>
+          </div>
+  
+          <button 
+            type="submit"
+            class="w-full flex justify-center py-3 px-4 rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            S'inscrire
+          </button>
+  
+          <p class="text-center text-sm text-gray-600">
+            <a href="#" (click)="toggleForm($event)" class="text-blue-600 hover:text-blue-800">Se connecter</a>
+          </p>
+        </form>
+      }
+    </div>
+  </div>

@@ -1,0 +1,16 @@
+<div class="notification-list">
+    
+    <ul>
+      <li *ngFor="let notification of notifications">
+        <p>{{ notification.message }}</p>
+        <small>Type: {{ notification.type }} - Date: {{ notification.date | date: 'short' }}</small>
+      </li>
+    </ul>
+  
+    <div class="pagination">
+      <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Précédent</button>
+      <span>Page {{ currentPage }} sur {{ totalPages }}</span>
+      <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Suivant</button>
+    </div>
+  </div>
+  

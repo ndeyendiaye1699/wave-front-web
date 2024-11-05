@@ -1,0 +1,31 @@
+:host {
+    display: block;
+  }
+  
+  .qr-code-container {
+    background: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .qr-code-image {
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .user-info {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  /* Animation pour le chargement */
+  @keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+  }
+  
+  .loading {
+    animation: pulse 1.5s infinite;
+  }
